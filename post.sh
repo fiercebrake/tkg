@@ -1,8 +1,8 @@
 #/bin/bash
 
-makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ntl
-makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/nvidia-all
-makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wine-tkg-git/wine-tkg-git
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ntl
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/nvidia-all
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wine-tkg-git/wine-tkg-git
 
 mv /mnt/tkg/ntl/*.pkg.tar.zst /mnt/tkg/repo
 mv /mnt/tkg/nvidia-all/*.pkg.tar.zst /mnt/tkg/repo
