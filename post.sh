@@ -1,5 +1,9 @@
 #/bin/bash
 
+makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ntl
+makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/nvidia-all
+makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wine-tkg-git/wine-tkg-git
+
 mv ../amd/*.pkg.tar.zst ./
 mv ../ntl/*.pkg.tar.zst ./
 mv ../nvidia-all/*.pkg.tar.zst ./
