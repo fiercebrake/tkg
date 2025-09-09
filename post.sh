@@ -1,24 +1,24 @@
 #/bin/bash
 
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ntl
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/amd
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/onedrive-abraunegg
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/google-chrome
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/microsoft-edge-stable-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/blesh-git
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ocs-url
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/aic94xx-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ast-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wd719x-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/upd72020x-fw
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/laptop-mode-tools-git
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/schedtoold-git
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/zoom
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/ventoy-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/visual-studio-code-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/proton-ge-custom-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/teams-for-linux-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/sound-theme-smooth
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ntl
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/amd
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/onedrive-abraunegg
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/google-chrome
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/microsoft-edge-stable-bin
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/blesh-git
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ocs-url
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/aic94xx-firmware
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ast-firmware
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/wd719x-firmware
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/upd72020x-fw
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/laptop-mode-tools-git
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/schedtoold-git
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/zoom
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ventoy-bin
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/visual-studio-code-bin
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/proton-ge-custom-bin
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/teams-for-linux-bin
+sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/sound-theme-smooth
 # sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/nvidia-all
 # sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wine-tkg-git/wine-tkg-git
 
