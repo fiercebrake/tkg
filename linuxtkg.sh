@@ -16,11 +16,12 @@ git clone https://aur.archlinux.org/upd72020x-fw.git
 git clone https://aur.archlinux.org/laptop-mode-tools-git.git
 git clone https://aur.archlinux.org/schedtoold-git.git
 git clone https://aur.archlinux.org/zoom.git
-git  clone https://aur.archlinux.org/ventoy-bin.git
+git clone https://aur.archlinux.org/ventoy-bin.git
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
 git clone https://aur.archlinux.org/proton-ge-custom-bin.git
 git clone https://aur.archlinux.org/teams-for-linux-bin.git
 git clone https://aur.archlinux.org/sound-theme-smooth.git
+git clone https://aur.archlinux.org/pwvucontrol.git
 git clone https://github.com/Frogging-Family/nvidia-all.git
 git clone https://github.com/Frogging-Family/wine-tkg-git.git
 
