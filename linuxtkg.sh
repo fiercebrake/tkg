@@ -14,7 +14,7 @@ git clone https://aur.archlinux.org/ast-firmware.git
 git clone https://aur.archlinux.org/wd719x-firmware.git
 git clone https://aur.archlinux.org/upd72020x-fw.git
 git clone https://aur.archlinux.org/laptop-mode-tools-git.git
-git clone https://aur.archlinux.org/schedtoold-git.git
+git clone https://aur.archlinux.org/schedtoold.git
 git clone https://aur.archlinux.org/zoom.git
 git clone https://aur.archlinux.org/ventoy-bin.git
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
