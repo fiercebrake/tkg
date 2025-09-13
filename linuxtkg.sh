@@ -22,6 +22,7 @@ git clone https://aur.archlinux.org/proton-ge-custom-bin.git
 git clone https://aur.archlinux.org/teams-for-linux-bin.git
 git clone https://aur.archlinux.org/sound-theme-smooth.git
 git clone https://aur.archlinux.org/networkmanager-ssh.git
+git clone https://aur.archlinux.org/ttf-ms-win10-auto.git
 git clone https://github.com/Frogging-Family/nvidia-all.git
 git clone https://github.com/Frogging-Family/wine-tkg-git.git
 
