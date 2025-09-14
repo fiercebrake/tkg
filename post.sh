@@ -1,27 +1,14 @@
 #/bin/bash
 
-# sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ntl
-# sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/amd
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/onedrive-abraunegg
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/google-chrome
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/microsoft-edge-stable-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/blesh-git
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ocs-url
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/aic94xx-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ast-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/wd719x-firmware
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/upd72020x-fw
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/laptop-mode-tools-git
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/schedtoold
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/zoom
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/ventoy-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/visual-studio-code-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/proton-ge-custom-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/teams-for-linux-bin
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/sound-theme-smooth
-sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/networkmanager-ssh
-# sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/nvidia-all
-# sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --dir /mnt/tkg/wine-tkg-git/wine-tkg-git
+declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-stable-bin' 'blesh-git' 'ocs-url' 'aic94xx-firmware' \
+	                       'ast-firmware' 'wd719x-firmware' 'upd72020x-fw' 'laptop-mode-tools-git' 'schedtoold' 'zoom' 'ventoy-bin' \
+			                   'visual-studio-code-bin' 'proton-ge-custom-bin' 'teams-for-linux-bin' 'sound-theme-smooth' 'networkmanager-ssh' \
+			                   'bitwarden-bin' 'amd' 'ntl' 'wine-tkg-git' 'nvidia-all')
+
+for package in "${arr_packages[@]}";
+do
+  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/"$package"
+done
 
 mv --force /mnt/tkg/*/*.pkg.tar.zst /mnt/tkg/repo
 
