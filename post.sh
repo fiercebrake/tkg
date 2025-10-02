@@ -6,7 +6,10 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
                          'visual-studio-code-bin' 'proton-ge-custom-bin' 'teams-for-linux-bin' 'sound-theme-smooth' \
                          'networkmanager-ssh' 'bitwarden-bin' 'pikaur' 'yubico-authenticator-bin' 'bibata-cursor-theme-bin' \
                          'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'libwireplumber-4.0-compat' 'pwvucontrol' \
-			 'heroic-games-launcher')
+			 'heroic-games-launcher' 'linux-tkg' 'nvidia-all' 'wine-tkg-git')
+
+
+declare -a arr_config=('ntl' 'nvd' 'wne')
 
 
 function del_folder() {
@@ -15,7 +18,16 @@ function del_folder() {
 
 
 function get_folder() {
-  sudo -u repo git clone https://aur.archlinux.org/$1.git /mnt/tkg/$1
+  if [[ $1 == 'linux-tkg' ]] || [[ $1 == 'nvidia-all' ]] || [[ $1 == 'wine-tkg-git' ]]; then
+    domain='github.com/Frogging-Family'
+    for conf in "${arr_config[@]}";
+    do
+      cp ./customization-$conf.cfg ./$1/customization.cfg
+    done
+  else
+    domain='aur.archlinux.org'
+  fi
+  sudo -u repo git clone https://$domain/$1.git /mnt/tkg/$1
 }
 
 
