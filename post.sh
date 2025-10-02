@@ -19,7 +19,7 @@ function get_folder() {
 
 
 function get_package() {
-  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --force --dir /mnt/tkg/$1
+  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$1
 }
 
 
