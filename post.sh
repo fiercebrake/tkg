@@ -5,7 +5,8 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
                          'ast-firmware' 'wd719x-firmware' 'upd72020x-fw' 'laptop-mode-tools-git' 'schedtoold' 'zoom' 'ventoy-bin' \
                          'visual-studio-code-bin' 'proton-ge-custom-bin' 'teams-for-linux-bin' 'sound-theme-smooth' \
                          'networkmanager-ssh' 'bitwarden-bin' 'pikaur' 'yubico-authenticator-bin' 'bibata-cursor-theme-bin' \
-                         'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'heroic-games-launcher')
+                         'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'libwireplumber-4.0-compat' 'pwvucontrol' \
+			 'heroic-games-launcher')
 
 
 function del_folder() {
@@ -20,8 +21,8 @@ function get_folder() {
 
 function get_package() {
   sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$1
-  if [[ $1 == 'httpfs2-2gbplus' ]]; then
-    sudo pacman -U /mnt/tkg/repo/$1/*.pkg.tar.zst
+  if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]]; then
+    sudo pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
   fi
 }
 
