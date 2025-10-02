@@ -4,7 +4,7 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
                          'ast-firmware' 'wd719x-firmware' 'upd72020x-fw' 'laptop-mode-tools-git' 'schedtoold' 'zoom' 'ventoy-bin' \
                          'visual-studio-code-bin' 'proton-ge-custom-bin' 'teams-for-linux-bin' 'sound-theme-smooth' \
                          'networkmanager-ssh' 'bitwarden-bin' 'pikaur' 'yubico-authenticator-bin' 'bibata-cursor-theme-bin' \
-                         'flat-remix' 'kora-icon-theme' 'ttf-ms-win10-auto' 'heroic-games-launcher')
+                         'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'heroic-games-launcher')
 
 
 function del_folder() {
