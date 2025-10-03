@@ -40,7 +40,7 @@ function get_package() {
 
   sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$folder
   
-  if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]]; then
+  if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]] || [[ $1 == 'linux-tkg' ]]; then
     sudo pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
   fi
 }
