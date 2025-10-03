@@ -8,7 +8,6 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
                          'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'libwireplumber-4.0-compat' 'pwvucontrol' \
 			 'heroic-games-launcher' 'linux-tkg' 'nvidia-all' 'wine-tkg-git')
 
-
 declare -a arr_config=('ntl' 'nvd' 'wne')
 
 
@@ -20,10 +19,6 @@ function del_folder() {
 function get_folder() {
   if [[ $1 == 'linux-tkg' ]] || [[ $1 == 'nvidia-all' ]] || [[ $1 == 'wine-tkg-git' ]]; then
     domain='github.com/Frogging-Family'
-    for conf in "${arr_config[@]}";
-    do
-      cp ./customization-$conf.cfg ./$1/customization.cfg
-    done
   else
     domain='aur.archlinux.org'
   fi
@@ -32,7 +27,19 @@ function get_folder() {
 
 
 function get_package() {
-  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$1
+  folder=$1
+  
+  if [[ $1 == 'linux-tkg' ]] || [[ $1 == 'nvidia-all' ]]; then
+      cp ./customization-$1.cfg ./$1/customization.cfg
+  fi
+  
+  if [[ $1 == 'wine-tkg-git' ]]; then
+      folder=$1/$1
+      cp ./customization-$1.cfg ./$1/$1/customization.cfg
+  fi
+
+  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$folder
+  
   if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]]; then
     sudo pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
   fi
