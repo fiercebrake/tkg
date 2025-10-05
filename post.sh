@@ -11,6 +11,9 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
 declare -a arr_config=('ntl' 'nvd' 'wne')
 
 
+sudo -u repo mkdir /mnt/tkg/repo
+
+
 function del_folder() {
   sudo rm -rf /mnt/tkg/$1
 }
@@ -43,8 +46,15 @@ function get_package() {
   if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]] || [[ $1 == 'linux-tkg' ]]; then
     sudo pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
   fi
+
+  mv -f /mnt/tkg/$folder/*.pkg.tar.zst /mnt/tkg/repo
 }
 
+
+function post_repo() {
+  rm -rf /mnt/tkg/repo/themis*
+  repo-add -n -v /mnt/tkg/repo/themis.db.tar.gz /mnt/tkg/repo/*.pkg.tar.zst
+}
 
 for package in "${arr_packages[@]}";
 do
@@ -55,10 +65,4 @@ do
   get_package $package
 done
 
-sudo -u repo mkdir /mnt/tkg/repo
-
-mv -f /mnt/tkg/*/*.pkg.tar.zst /mnt/tkg/repo
-
-rm -rf /mnt/tkg/repo/themis*
-
-repo-add -n -v /mnt/tkg/repo/themis.db.tar.gz /mnt/tkg/repo/*.pkg.tar.zst
+post_repo
