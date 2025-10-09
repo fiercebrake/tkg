@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 
 declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-stable-bin' 'blesh-git' 'ocs-url' 'aic94xx-firmware' \
@@ -6,16 +6,20 @@ declare -a arr_packages=('onedrive-abraunegg' 'google-chrome' 'microsoft-edge-st
                          'visual-studio-code-bin' 'proton-ge-custom-bin' 'teams-for-linux-bin' 'sound-theme-smooth' \
                          'networkmanager-ssh' 'bitwarden-bin' 'pikaur' 'yubico-authenticator-bin' 'bibata-cursor-theme-bin' \
                          'flat-remix' 'kora-icon-theme' 'httpfs2-2gbplus' 'ttf-ms-win10-auto' 'libwireplumber-4.0-compat' 'pwvucontrol' \
-			 'heroic-games-launcher' 'crossover' 'linux-tkg' 'nvidia-all' 'wine-tkg-git')
+			 'heroic-games-launcher' 'crossover' 'deezer' 'linux-tkg' 'nvidia-all' 'wine-tkg-git')
 
 declare -a arr_config=('ntl' 'nvd' 'wne')
 
 
-sudo -u repo mkdir /mnt/tkg/repo
+if ! ping -c 1 -W 2 'aur.archlinux.org' > /dev/null 2>&1; then
+  /usr/bin/echo "### THE DOMAIN IS DOWN OR UNREACHABLE ###"
+  exit 1
+fi
 
+/usr/bin/sudo -u repo /usr/bin/mkdir /mnt/tkg/repo
 
 function del_folder() {
-  sudo rm -rf /mnt/tkg/$1
+  /usr/bin/sudo /usr/bin/rm -rf /mnt/tkg/$1
 }
 
 
@@ -25,36 +29,43 @@ function get_folder() {
   else
     domain='aur.archlinux.org'
   fi
-  sudo -u repo git clone https://$domain/$1.git /mnt/tkg/$1
+  /usr/bin/sudo -u repo /usr/bin/git clone https://$domain/$1.git /mnt/tkg/$1
 }
 
 
 function get_package() {
   folder=$1
-  
-  if [[ $1 == 'linux-tkg' ]] || [[ $1 == 'nvidia-all' ]]; then
-      cp ./customization-$1.cfg ./$1/customization.cfg
-  fi
-  
-  if [[ $1 == 'wine-tkg-git' ]]; then
+
+  case $1 in
+    linux-tkg|nvidia-all)
+      /usr/bin/cp ./customization-$1.cfg ./$1/customization.cfg
+      ;;
+    wine-tkg-git)
       folder=$1/$1
-      cp ./customization-$1.cfg ./$1/$1/customization.cfg
-  fi
+      /usr/bin/cp ./customization-$1.cfg ./$1/$1/customization.cfg
+      ;;
+    *)
+      /usr/bin/sudo -u repo /usr/bin/makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$folder
+      if [ $? -ne 0 ]; then
+        echo "Error: Failed to create $1." > ./error.log
+        # exit 1
+      fi
+      ;;
+  esac
 
-  sudo -u repo makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$folder
-  
   if [[ $1 == 'httpfs2-2gbplus' ]] || [[ $1 == 'libwireplumber-4.0-compat' ]] || [[ $1 == 'linux-tkg' ]]; then
-    sudo pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
+    /usr/bin/sudo /usr/bin/pacman --needed --noconfirm -U /mnt/tkg/$1/*.pkg.tar.zst
   fi
 
-  mv -f /mnt/tkg/$folder/*.pkg.tar.zst /mnt/tkg/repo
+  /usr/bin/mv -f /mnt/tkg/$folder/*.pkg.tar.zst /mnt/tkg/repo
 }
 
 
 function post_repo() {
-  rm -rf /mnt/tkg/repo/themis*
-  repo-add -n -v /mnt/tkg/repo/themis.db.tar.gz /mnt/tkg/repo/*.pkg.tar.zst
+  /usr/bin/rm -rf /mnt/tkg/repo/themis*
+  /usr/bin/repo-add -n -v /mnt/tkg/repo/themis.db.tar.gz /mnt/tkg/repo/*.pkg.tar.zst
 }
+
 
 for package in "${arr_packages[@]}";
 do
