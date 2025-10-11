@@ -38,11 +38,11 @@ function get_package() {
 
   case $1 in
     linux-tkg|nvidia-all)
-      /usr/bin/cp ./customization-$1.cfg ./$1/customization.cfg
+      /usr/bin/cp /mnt/tkg/customization-$1.cfg /mnt/tkg/$1/customization.cfg
       ;;
     wine-tkg-git)
       folder=$1/$1
-      /usr/bin/cp ./customization-$1.cfg ./$1/$1/customization.cfg
+      /usr/bin/cp /mnt/tkg/customization-$1.cfg /mnt/tkg/$1/$1/customization.cfg
       ;;
     *)
       /usr/bin/sudo -u repo /usr/bin/makepkg --needed --noconfirm --syncdeps --cleanbuild --clean --skippgpcheck --force --dir /mnt/tkg/$folder
